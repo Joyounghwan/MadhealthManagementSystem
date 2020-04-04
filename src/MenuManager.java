@@ -6,7 +6,6 @@ public class MenuManager {
 		MadhealthManager madhealthManager = new MadhealthManager(input);
 		
 		int num = 1;
-
 		while (num != 5) {		
 			System.out.println("*** Madhealth Management System Menu ***");
 			System.out.println(" 1. Membership information");

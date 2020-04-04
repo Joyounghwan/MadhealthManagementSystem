@@ -1,26 +1,26 @@
 public class Madhealth {
-	int Height;
-	int Weight;
-	int Fatmass;
-	int Musclemass;
+	int height;
+	int weight;
+	int fatmass;
+	int musclemass;
 	
 	public Madhealth() {
 	}
 	
-	public Madhealth(int Height, int Weight) {
-		this.Height = Height;
-		this.Weight = Weight;
+	public Madhealth(int height, int weight) {
+		this.height = height;
+		this.weight = weight;
 	}
 	
-	public Madhealth(int Height, int Weight, int Fatmass, int Musclemass) {
-		this.Height = Height;
-		this.Weight = Weight;
-		this.Fatmass = Fatmass;
-		this.Musclemass = Musclemass;
+	public Madhealth(int height, int weight, int fatmass, int musclemass) {
+		this.height = height;
+		this.weight = weight;
+		this.fatmass = fatmass;
+		this.musclemass = musclemass;
 	}
 	
 	public void printInfo() {
-		System.out.println("Height:" + Height + "Weight:" + Weight + "Fatmass:" + Fatmass + "Musclemass:" + Musclemass);
+		System.out.println("Height:" + height + " Weight:" + weight + " Fatmass:" + fatmass + " Musclemass:" + musclemass);
 	}
 	
 }
