@@ -1,38 +1,50 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import madhealth.Madhealth;
+import madhealth.MasterMadhealth;
 public class MadhealthManager {
 	ArrayList<Madhealth> madhealths = new ArrayList<Madhealth>();
 	Scanner input;
 	MadhealthManager(Scanner input) {
 		this.input = input;
 	}
-
 	public void addmembershipinformation() {
-		Madhealth madhealth = new Madhealth();
-		System.out.print("Height : ");
-		madhealth.height = input.nextInt();
-		System.out.print("Weight : ");
-		madhealth.weight = input.nextInt();
-		System.out.print("Fat mass :");
-		madhealth.fatmass = input.nextInt();
-		System.out.print("Muscle mass :");
-		madhealth.musclemass = input.nextInt();
-		madhealths.add(madhealth);
+		int kind = 0;
+		Madhealth madhealth;
+		while(kind != 1 && kind != 2) {
+			System.out.println("1 for Trainer");
+			System.out.println("2 for Master");
+			System.out.println("Select num for Madhealth Kind between 1 and 2 : ");
+			kind = input.nextInt();
+			if(kind == 1) {
+				madhealth = new Madhealth();
+				madhealth.getMembershipInput(input);
+				madhealths.add(madhealth);
+				break;
+			}
+			else if(kind == 2) {
+				madhealth = new MasterMadhealth();
+				madhealth.getMembershipInput(input);
+				madhealths.add(madhealth);
+				break;
+			}
+			else {
+				System.out.println("Select num for Madhealth Kind between 1 and 2 :");
+			}
+		}
 	}
 	public void deletemembership() {
 		System.out.print("Height : ");
 		int membershipheight = input.nextInt();
 		int index = -1;
 		for(int i = 0; i<madhealths.size(); i++) {
-			if (madhealths.get(i).height == membershipheight) {
+			if (madhealths.get(i).getHeight() == membershipheight) {
 				index = i;
 				break;
 			}
 		}
 		if(index >= 0) {
 			madhealths.remove(index);
-			Madhealth.numMadhealthsRegistered--;
 			System.out.println("the madhealth "+ membershipheight + " is deleted");
 		}
 		else {
@@ -45,7 +57,7 @@ public class MadhealthManager {
 		int membershipheight = input.nextInt();
 		for(int i=0; i<madhealths.size(); i++) {
 			Madhealth madhealth = madhealths.get(i);
-			if (madhealth.height == membershipheight) {
+			if (madhealth.getHeight() == membershipheight) {
 				int num = 1;
 				while (num != 5) {
 					System.out.println("** Madhealth Info Edit Menu **");
@@ -58,19 +70,23 @@ public class MadhealthManager {
 					num =input.nextInt();
 					if (num == 1) {
 						System.out.print("Height : ");
-						madhealth.height = input.nextInt();
+						int height = input.nextInt();
+						madhealth.setHeight(height);
 					}
 					else if (num == 2) {
 						System.out.print("Weight : ");
-						madhealth.weight = input.nextInt();
+						int weight = input.nextInt();
+						madhealth.setWeight(weight);
 					}
 					else if (num == 3) {
 						System.out.print("Fat mass :");
-						madhealth.fatmass = input.nextInt();
+						int fatmass = input.nextInt();
+						madhealth.setFatmass(fatmass);
 					}
 					else if (num == 4) {
 						System.out.print("Muscle mass :");
-						madhealth.musclemass = input.nextInt();	
+						int musclemass = input.nextInt();
+						madhealth.setMusclemass(musclemass);
 					}
 					else {
 						continue;
@@ -83,7 +99,7 @@ public class MadhealthManager {
 	public void viewmemberships() {
 		//		System.out.println("Height : ");
 		//		int membershipheight = input.nextInt();
-		System.out.println("# of registered memberships:" + Madhealth.numMadhealthsRegistered);
+		System.out.println("# of registered memberships:" + madhealths.size());
 		for(int i=0; i<madhealths.size(); i++) {
 			madhealths.get(i).printInfo();
 		}

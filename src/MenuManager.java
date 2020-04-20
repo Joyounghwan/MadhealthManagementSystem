@@ -1,10 +1,8 @@
 import java.util.Scanner;
-
 public class MenuManager {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		MadhealthManager madhealthManager = new MadhealthManager(input);
-
 		int num = 1;
 		while (num != 5) {		
 			System.out.println("*** Madhealth Management System Menu ***");
