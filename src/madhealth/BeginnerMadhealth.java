@@ -82,5 +82,4 @@ public class BeginnerMadhealth extends Madhealth {
 		}
 		System.out.println("kind:" + skind + " Height:" + height + " Weight:" + weight + " Fatmass:" + fatmass + " Musclemass:" + musclemass + " Fatmass goal:" + fatmass + " Musclemass goal:" + musclemass);
 	}
-
 }

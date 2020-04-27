@@ -111,5 +111,7 @@ public class Madhealth {
 		System.out.print("Muscle mass :");
 		int musclemass = input.nextInt();
 		this.setMusclemass(musclemass);
+	
 	}
+	
 }

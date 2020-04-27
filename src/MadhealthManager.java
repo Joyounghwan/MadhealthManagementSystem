@@ -108,8 +108,8 @@ public class MadhealthManager {
 		}
 	}
 	public void viewmemberships() {
-		//		System.out.println("Height : ");
-		//		int membershipheight = input.nextInt();
+		//		 System.out.println("Height : ");
+		//		 int membershipheight = input.nextInt();
 		System.out.println("# of registered memberships:" + madhealths.size());
 		for(int i=0; i<madhealths.size(); i++) {
 			madhealths.get(i).printInfo();
