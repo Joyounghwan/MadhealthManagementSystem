@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import madhealth.BeginnerMadhealth;
 import madhealth.Madhealth;
+import madhealth.MadhealthKind;
 import madhealth.MasterMadhealth;
 public class MadhealthManager {
 	ArrayList<Madhealth> madhealths = new ArrayList<Madhealth>();
@@ -14,16 +17,23 @@ public class MadhealthManager {
 		while(kind != 1 && kind != 2) {
 			System.out.println("1 for Trainer");
 			System.out.println("2 for Master");
-			System.out.println("Select num for Madhealth Kind between 1 and 2 : ");
+			System.out.println("3 for Beginner");
+			System.out.print("Select num 1, 2 or 3 for Madhealth Kind : ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				madhealth = new Madhealth();
+				madhealth = new Madhealth(MadhealthKind.Trainer);
 				madhealth.getMembershipInput(input);
 				madhealths.add(madhealth);
 				break;
 			}
 			else if(kind == 2) {
-				madhealth = new MasterMadhealth();
+				madhealth = new MasterMadhealth(MadhealthKind.Master);
+				madhealth.getMembershipInput(input);
+				madhealths.add(madhealth);
+				break;
+			}
+			else if(kind == 3) {
+				madhealth = new BeginnerMadhealth(MadhealthKind.Beginner);
 				madhealth.getMembershipInput(input);
 				madhealths.add(madhealth);
 				break;

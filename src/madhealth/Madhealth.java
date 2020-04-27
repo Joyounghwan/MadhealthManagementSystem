@@ -1,5 +1,4 @@
 package madhealth;
-
 import java.util.Scanner;
 
 public class Madhealth {
@@ -10,6 +9,10 @@ public class Madhealth {
 	protected int musclemass;
 
 	public Madhealth() {
+	}
+	
+	public Madhealth(MadhealthKind kind) {
+		this.kind = kind;
 	}
 
 	public Madhealth(int height, int weight) {
@@ -23,7 +26,15 @@ public class Madhealth {
 		this.fatmass = fatmass;
 		this.musclemass = musclemass;
 	}
-	
+
+	public Madhealth(MadhealthKind kind, int height, int weight, int fatmass, int musclemass) {
+		this.kind = kind;
+		this.height = height;
+		this.weight = weight;
+		this.fatmass = fatmass;
+		this.musclemass = musclemass;
+	}
+
 	public MadhealthKind getKind() {
 		return kind;
 	}
@@ -65,22 +76,38 @@ public class Madhealth {
 	}
 
 	public void printInfo() {
-		System.out.println("Height:" + height + " Weight:" + weight + " Fatmass:" + fatmass + " Musclemass:" + musclemass);
+		String skind = "none";
+		switch(this.kind) {
+		case Trainer:
+			skind ="Trainer";
+			break;
+		case Master:
+			skind ="Master";
+			break;
+		case Intermediate:
+			skind ="Intermediate";
+			break;
+		case Beginner:
+			skind ="Beginner";
+			break;
+		default:
+		}
+		System.out.println("kind:" + skind + " Height:" + height + " Weight:" + weight + " Fatmass:" + fatmass + " Musclemass:" + musclemass);
 	}
-	
+
 	public void getMembershipInput(Scanner input) {
 		System.out.print("Height : ");
 		int height = input.nextInt();
 		this.setHeight(height);
-		
+
 		System.out.print("Weight : ");
 		int weight = input.nextInt();
 		this.setWeight(weight);
-		
+
 		System.out.print("Fat mass :");
 		int fatmass = input.nextInt();
 		this.setFatmass(fatmass);
-		
+
 		System.out.print("Muscle mass :");
 		int musclemass = input.nextInt();
 		this.setMusclemass(musclemass);
