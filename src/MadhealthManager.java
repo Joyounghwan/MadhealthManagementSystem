@@ -1,6 +1,11 @@
-package madhealth;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import madhealth.BeginnerMadhealth;
+import madhealth.Madhealth;
+import madhealth.MadhealthKind;
+import madhealth.MasterMadhealth;
 public class MadhealthManager {
 	ArrayList<Madhealth> madhealths = new ArrayList<Madhealth>();
 	Scanner input;
