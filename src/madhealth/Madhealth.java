@@ -10,7 +10,7 @@ public class Madhealth {
 
 	public Madhealth() {
 	}
-	
+
 	public Madhealth(MadhealthKind kind) {
 		this.kind = kind;
 	}

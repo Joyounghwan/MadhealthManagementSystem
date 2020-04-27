@@ -2,11 +2,11 @@ package madhealth;
 import java.util.Scanner;
 
 public class MasterMadhealth extends Madhealth {
-	
+
 	public MasterMadhealth(MadhealthKind kind) {
 		super(kind);
 	}
-	
+
 	public void getMembershipInput(Scanner input) {
 		System.out.print("Height : ");
 		int height = input.nextInt();
