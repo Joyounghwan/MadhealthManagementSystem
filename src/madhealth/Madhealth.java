@@ -1,7 +1,7 @@
 package madhealth;
 import java.util.Scanner;
 
-public class Madhealth {
+public abstract class Madhealth implements MadhealthInput {
 	protected MadhealthKind kind = MadhealthKind.Trainer;
 	protected int height;
 	protected int weight;
@@ -75,7 +75,33 @@ public class Madhealth {
 		this.musclemass = musclemass;
 	}
 
-	public void printInfo() {
+	public abstract void printInfo();
+
+	public void setMembershipHeight(Scanner input) {
+		System.out.print("Height : ");
+		int height = input.nextInt();
+		this.setHeight(height);		
+	}
+
+	public void setMembershipWeight(Scanner input) {
+		System.out.print("Weight : ");
+		int weight = input.nextInt();
+		this.setWeight(weight);
+	}
+
+	public void setMembershipFatmass(Scanner input) {
+		System.out.print("Fat mass :");
+		int fatmass = input.nextInt();
+		this.setFatmass(fatmass);
+	}
+
+	public void setMembershipMusclemass(Scanner input) {
+		System.out.print("Muscle mass :");
+		int musclemass = input.nextInt();
+		this.setMusclemass(musclemass);
+	}
+
+	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {
 		case Trainer:
@@ -92,26 +118,6 @@ public class Madhealth {
 			break;
 		default:
 		}
-		System.out.println("kind:" + skind + " Height:" + height + " Weight:" + weight + " Fatmass:" + fatmass + " Musclemass:" + musclemass);
+		return skind;
 	}
-
-	public void getMembershipInput(Scanner input) {
-		System.out.print("Height : ");
-		int height = input.nextInt();
-		this.setHeight(height);
-
-		System.out.print("Weight : ");
-		int weight = input.nextInt();
-		this.setWeight(weight);
-
-		System.out.print("Fat mass :");
-		int fatmass = input.nextInt();
-		this.setFatmass(fatmass);
-
-		System.out.print("Muscle mass :");
-		int musclemass = input.nextInt();
-		this.setMusclemass(musclemass);
-	
-	}
-	
 }

@@ -5,6 +5,6 @@ public enum MadhealthKind {
 	Master,
 	Intermediate,
 	Beginner,
-	
+
 
 }
