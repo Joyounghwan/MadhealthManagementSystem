@@ -2,6 +2,8 @@ package madhealth;
 
 import java.util.Scanner;
 
+import exception.FatmassFormatException;
+
 public interface MadhealthInput {
 
 	public int getHeight();
@@ -10,7 +12,7 @@ public interface MadhealthInput {
 
 	public void setWeight(int weight);
 
-	public void setFatmass(int fatmass);
+	public void setFatmass(int fatmass) throws FatmassFormatException;
 
 	public void setMusclemass(int musclemass);
 

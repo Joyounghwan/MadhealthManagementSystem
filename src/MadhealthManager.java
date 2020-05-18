@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import madhealth.BeginnerMadhealth;
@@ -17,32 +18,41 @@ public class MadhealthManager {
 	public void addmembershipinformation() {
 		int kind = 0;
 		MadhealthInput madhealthInput;
-		while(kind != 1 && kind != 2) {
-			System.out.println("1 for Trainer");
-			System.out.println("2 for Master");
-			System.out.println("3 for Beginner");
-			System.out.print("Select num 1, 2 or 3 for Madhealth Kind : ");
-			kind = input.nextInt();
-			if(kind == 1) {
-				madhealthInput = new TrainerMadhealth(MadhealthKind.Trainer);
-				madhealthInput.getMembershipInput(input);
-				madhealths.add(madhealthInput);
-				break;
+		while(kind < 1 || kind > 3) {
+			try {
+				System.out.println("1 for Trainer");
+				System.out.println("2 for Master");
+				System.out.println("3 for Beginner");
+				System.out.print("Select num 1, 2 or 3 for Madhealth Kind : ");
+				kind = input.nextInt();
+				if(kind == 1) {
+					madhealthInput = new TrainerMadhealth(MadhealthKind.Trainer);
+					madhealthInput.getMembershipInput(input);
+					madhealths.add(madhealthInput);
+					break;
+				}
+				else if(kind == 2) {
+					madhealthInput = new MasterMadhealth(MadhealthKind.Master);
+					madhealthInput.getMembershipInput(input);
+					madhealths.add(madhealthInput);
+					break;
+				}
+				else if(kind == 3) {
+					madhealthInput = new BeginnerMadhealth(MadhealthKind.Beginner);
+					madhealthInput.getMembershipInput(input);
+					madhealths.add(madhealthInput);
+					break;
+				}
+				else {
+					System.out.println("Select num for Madhealth Kind between 1 and 2 :");
+				}
 			}
-			else if(kind == 2) {
-				madhealthInput = new MasterMadhealth(MadhealthKind.Master);
-				madhealthInput.getMembershipInput(input);
-				madhealths.add(madhealthInput);
-				break;
-			}
-			else if(kind == 3) {
-				madhealthInput = new BeginnerMadhealth(MadhealthKind.Beginner);
-				madhealthInput.getMembershipInput(input);
-				madhealths.add(madhealthInput);
-				break;
-			}
-			else {
-				System.out.println("Select num for Madhealth Kind between 1 and 2 :");
+			catch(InputMismatchException e) {
+				System.out.println("Please put an integer between 1 and 3!");
+				if (input.hasNext()) {
+					input.next();
+				}
+				kind = -1;
 			}
 		}
 	}

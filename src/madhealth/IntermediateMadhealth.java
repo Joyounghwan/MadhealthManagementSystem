@@ -2,6 +2,8 @@ package madhealth;
 
 import java.util.Scanner;
 
+import exception.FatmassFormatException;
+
 public abstract class IntermediateMadhealth extends Madhealth {
 
 	public IntermediateMadhealth(MadhealthKind kind) {
@@ -23,17 +25,22 @@ public abstract class IntermediateMadhealth extends Madhealth {
 		{
 			System.out.println("Do you know your fat mass? (Y/N)");
 			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y' ) {
-				System.out.print("Fat mass :");
-				int fatmass = input.nextInt();
-				this.setFatmass(fatmass);
-				break;
+			try {
+				if (answer == 'y' || answer == 'Y' ) {
+					System.out.print("Fat mass :");
+					int fatmass = input.nextInt();
+					this.setFatmass(fatmass);
+					break;
+				}
+				else if (answer == 'n' || answer == 'N' ) {
+					this.setFatmass(0);
+					break;
+				}
+				else {
+				}
 			}
-			else if (answer == 'n' || answer == 'N' ) {
-				this.setFatmass(0);
-				break;
-			}
-			else {
+			catch(FatmassFormatException e) {
+				System.out.println("Incorrect Fatmass Format. Put the fatmass correctly.");
 			}
 		}
 	}

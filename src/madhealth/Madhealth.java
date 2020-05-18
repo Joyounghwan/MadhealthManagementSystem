@@ -1,6 +1,8 @@
 package madhealth;
 import java.util.Scanner;
 
+import exception.FatmassFormatException;
+
 public abstract class Madhealth implements MadhealthInput {
 	protected MadhealthKind kind = MadhealthKind.Trainer;
 	protected int height;
@@ -63,7 +65,11 @@ public abstract class Madhealth implements MadhealthInput {
 		return fatmass;
 	}
 
-	public void setFatmass(int fatmass) {
+	public void setFatmass(int fatmass) throws FatmassFormatException {
+		if (fatmass < 0 || fatmass > 50) {
+			throw new FatmassFormatException();
+		}
+
 		this.fatmass = fatmass;
 	}
 
@@ -90,9 +96,16 @@ public abstract class Madhealth implements MadhealthInput {
 	}
 
 	public void setMembershipFatmass(Scanner input) {
-		System.out.print("Fat mass :");
-		int fatmass = input.nextInt();
-		this.setFatmass(fatmass);
+		int fatmass = -1;
+		while(fatmass < 0 || fatmass > 50) {
+			System.out.print("Fat mass :");
+			fatmass = input.nextInt();
+			try {
+				this.setFatmass(fatmass);
+			} catch (FatmassFormatException e) {
+				System.out.println("Incorrect Fatmass Format. Put the fatmass correctly.");
+			}
+		}
 	}
 
 	public void setMembershipMusclemass(Scanner input) {
