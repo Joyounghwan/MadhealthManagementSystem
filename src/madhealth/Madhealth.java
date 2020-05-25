@@ -1,9 +1,15 @@
 package madhealth;
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.FatmassFormatException;
 
-public abstract class Madhealth implements MadhealthInput {
+public abstract class Madhealth implements MadhealthInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3409737315003532275L;
+	
 	protected MadhealthKind kind = MadhealthKind.Trainer;
 	protected int height;
 	protected int weight;

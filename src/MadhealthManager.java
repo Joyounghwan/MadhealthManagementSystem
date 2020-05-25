@@ -1,20 +1,29 @@
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import madhealth.BeginnerMadhealth;
-import madhealth.Madhealth;
 import madhealth.MadhealthInput;
 import madhealth.MadhealthKind;
 import madhealth.MasterMadhealth;
 import madhealth.TrainerMadhealth;
-public class MadhealthManager {
+
+public class MadhealthManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -680697281474698744L;
+	
 	ArrayList<MadhealthInput> madhealths = new ArrayList<MadhealthInput>();
-	Scanner input;
+	transient Scanner input;
 	MadhealthManager(Scanner input) {
 		this.input = input;
 	}
+	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	
 	public void addmembershipinformation() {
 		int kind = 0;
 		MadhealthInput madhealthInput;
