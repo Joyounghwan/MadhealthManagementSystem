@@ -12,7 +12,7 @@ public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt");
 
 	public static void main(String[] args) {
-		
+
 		Scanner input = new Scanner(System.in);
 		MadhealthManager madhealthManager = getObject("madhealthmanager.ser");
 		if (madhealthManager == null) {
@@ -21,11 +21,11 @@ public class MenuManager {
 		else {
 			madhealthManager.setScanner(input);
 		}
-		
+
 		selectMenu(input, madhealthManager);
 		putObject(madhealthManager, "madhealthmanager.ser");
 	}
-	
+
 	public static void selectMenu(Scanner input, MadhealthManager madhealthManager) {
 		int num = 1;
 		while (num != 5) {
@@ -72,18 +72,18 @@ public class MenuManager {
 		System.out.println(" 5. Exit");
 		System.out.println("Select one number between 1 - 5:");
 	}
-	
+
 	public static MadhealthManager getObject(String filename) {
 		MadhealthManager madhealthManager = null;
-		
-		
-		
+
+
+
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
-			
+
 			madhealthManager = (MadhealthManager) in.readObject();
-			
+
 			in.close();
 			file.close();			
 		} catch (FileNotFoundException e) {
@@ -95,17 +95,17 @@ public class MenuManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return madhealthManager;
 	}
-	
+
 	public static void putObject(MadhealthManager madhealthManager, String filename) {
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);
-			
+
 			out.writeObject(madhealthManager);
-			
+
 			out.close();
 			file.close();			
 		} catch (FileNotFoundException e) {

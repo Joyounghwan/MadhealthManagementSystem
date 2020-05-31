@@ -13,17 +13,17 @@ public class MadhealthManager implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -680697281474698744L;
-	
+
 	ArrayList<MadhealthInput> madhealths = new ArrayList<MadhealthInput>();
 	transient Scanner input;
 	MadhealthManager(Scanner input) {
 		this.input = input;
 	}
-	
+
 	public void setScanner(Scanner input) {
 		this.input = input;
 	}
-	
+
 	public void addmembershipinformation() {
 		int kind = 0;
 		MadhealthInput madhealthInput;
