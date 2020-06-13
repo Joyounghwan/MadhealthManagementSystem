@@ -1,0 +1,2 @@
+6월 14, 2020 1:31:34 오전 log.EventLogger log
+정보: add a membership
