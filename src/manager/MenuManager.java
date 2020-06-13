@@ -78,7 +78,7 @@ public class MenuManager {
 	}
 
 	public static MadhealthManager getObject(String filename) {
-		MadhealthManager madhealthManager = null;
+		MadhealthManager madhealthManager = null; 
 
 
 
