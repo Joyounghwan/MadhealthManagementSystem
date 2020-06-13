@@ -8,7 +8,7 @@ import gui.MembershipViewer;
 import gui.WindowFrame;
 
 public class ButtonViewListener implements ActionListener {
-	
+
 	WindowFrame frame;
 
 	public ButtonViewListener(WindowFrame frame) {

@@ -1,10 +1,6 @@
-/Madhealth.class
 /MadhealthManager.class
-/MadhealthKind.class
-/madhealth/
-/MenuManager.class
 /exception/
-/log/
 /gui/
-/ButtonViewListener.class
+/manager/
 /listeners/
+/madhealth/

@@ -1,8 +1,11 @@
+package manager;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import madhealth.BeginnerMadhealth;
+import madhealth.Madhealth;
 import madhealth.MadhealthInput;
 import madhealth.MadhealthKind;
 import madhealth.MasterMadhealth;
@@ -135,6 +138,14 @@ public class MadhealthManager implements Serializable{
 		}
 	}
 
+	public int size() {
+		return madhealths.size();
+	}
+	
+	public MadhealthInput get(int index) {
+		return (Madhealth) madhealths.get(index);
+	}
+	
 	public void showEditMenu() {
 		System.out.println("** Madhealth Info Edit Menu **");
 		System.out.println(" 1. Edit Height");

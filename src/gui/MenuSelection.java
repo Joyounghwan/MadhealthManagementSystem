@@ -11,14 +11,14 @@ import listeners.ButtonAddListener;
 import listeners.ButtonViewListener;
 
 public class MenuSelection extends JPanel {
-	
+
 	WindowFrame frame;
 
 	public MenuSelection(WindowFrame frame) {
 		this.frame = frame;
-		
+
 		this.setLayout(new BorderLayout());
-		
+
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
 		JLabel label = new JLabel("Menu Selection");
@@ -28,10 +28,10 @@ public class MenuSelection extends JPanel {
 		JButton button3 = new JButton("Edit Membership");
 		JButton button4 = new JButton("Delete Membership");
 		JButton button5 = new JButton("Exit Program");
-		
-        button1.addActionListener(new ButtonAddListener(frame));
+
+		button1.addActionListener(new ButtonAddListener(frame));
 		button2.addActionListener(new ButtonViewListener(frame));
-		
+
 		panel1.add(label);
 		panel2.add(button1);
 		panel2.add(button2);

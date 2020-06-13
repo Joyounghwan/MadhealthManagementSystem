@@ -3,32 +3,38 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.MadhealthManager;
+
 public class WindowFrame extends JFrame {
 
+	MadhealthManager madhealthManager;
+	
 	MenuSelection menuselection;
 	MembershipAdder membershipadder;
-	MembershipViewer membershipviewer ;	
+	MembershipViewer membershipviewer;
 
-	public WindowFrame() {
-		this.menuselection = new MenuSelection(this);
-		this.membershipadder = new MembershipAdder(this);
-		this.membershipviewer = new MembershipViewer(this);	
-		
+	public WindowFrame(MadhealthManager madhealthManager) {
 		this.setSize(500, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			
-		this.setupPanel(menuselection);
-
+		this.setTitle("My Frame");
+		
+		this.madhealthManager = madhealthManager;
+		menuselection = new MenuSelection(this);
+		membershipadder = new MembershipAdder(this);
+		membershipviewer = new MembershipViewer(this,this.madhealthManager);
+		
+		this.add(menuselection);
+		
 		this.setVisible(true);
 	}
-
+	
 	public void setupPanel(JPanel panel) {
 		this.getContentPane().removeAll();
 		this.getContentPane().add(panel);
 		this.revalidate();
 		this.repaint();
 	}
-	
+
 	public MenuSelection getMenuselection() {
 		return menuselection;
 	}
@@ -52,5 +58,5 @@ public class WindowFrame extends JFrame {
 	public void setMembershipviewer(MembershipViewer membershipviewer) {
 		this.membershipviewer = membershipviewer;
 	}
-	
+
 }
